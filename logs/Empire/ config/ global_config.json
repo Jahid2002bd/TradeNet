@@ -1,0 +1,6 @@
+{
+  "dry_run": false,
+  "binance_api_key": "Ed25519, RSA",
+  "binance_api_secret": "HMACt",
+  "approved_symbols": ["BTCUSDT", "ETHUSDT"]
+}

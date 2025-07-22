@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>{{ symbol }} - TradeNet Signal</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='tradenet_style.css') }}">
+  <style>
+    .detail-section {
+      padding: 32px;
+      color: #ffffff;
+    }
+
+    .signal-box {
+      background-color: #102438;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 6px rgba(0,0,0,0.4);
+      margin-bottom: 32px;
+    }
+
+    .signal-box p {
+      font-size: 16px;
+      margin: 6px 0;
+    }
+
+    .chart-box iframe {
+      border: none;
+      width: 100%;
+      height: 400px;
+      border-radius: 6px;
+      box-shadow: 0 0 6px rgba(0,0,0,0.3);
+    }
+
+    .ai-explain {
+      margin-top: 32px;
+      background-color: #162e48;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 4px rgba(0,0,0,0.3);
+    }
+
+    #explain-btn {
+      background-color: #f4c400;
+      border: none;
+      padding: 10px 18px;
+      font-size: 14px;
+      font-weight: bold;
+      cursor: pointer;
+      border-radius: 4px;
+      color: #081827;
+    }
+
+    #ai-response {
+      margin-top: 16px;
+      font-style: italic;
+      color: #e0e0e0;
+    }
+  </style>
+</head>
+<body>
+  <header class="tradenet-header">
+    <img src="{{ url_for('static', filename='assets/tradenet_logo.png') }}" alt="TradeNet Logo" class="logo">
+    <span class="logo-text">TradeNet</span>
+  </header>
+
+  <main class="detail-section">
+    <h2>📍 Signal Details for <strong>{{ symbol }}</strong></h2>
+
+    <div class="signal-box">
+      <p><strong>Signal:</strong> {{ signal }}</p>
+      <p><strong>Confidence:</strong> {{ confidence }}</p>
+      <p><strong>Booster:</strong> {{ booster }}</p>
+      <p><strong>Generated:</strong> {{ time }}</p>
+    </div>
+
+    <div class="chart-box">
+      <iframe
+        src="https://s.tradingview.com/embed-widget/mini-symbol-overview/?symbol={{ symbol }}"
+        allowtransparency="true"
+        scrolling="no">
+      </iframe>
+    </div>
+
+    <div class="ai-explain">
+      <button id="explain-btn">🧠 Explain This Signal</button>
+      <p id="ai-response">...</p>
+    </div>
+
+    <script>
+      document.getElementById("explain-btn").onclick = async () => {
+        const res = await fetch("/ai_explain/{{ symbol }}");
+        const txt = await res.text();
+        document.getElementById("ai-response").innerText = txt;
+      };
+    </script>
+  </main>
+</body>
+</html>

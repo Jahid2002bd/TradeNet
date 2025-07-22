@@ -1,0 +1,64 @@
+<!-- templates/income_dashboard.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>TradeNet Earnings Dashboard</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='tradenet_style.css') }}">
+  <style>
+    .income-section {
+      padding: 32px;
+      color: #ffffff;
+    }
+
+    .income-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .income-box {
+      background-color: #102438;
+      padding: 20px;
+      border-radius: 8px;
+      text-align: center;
+      box-shadow: 0 0 6px rgba(0,0,0,0.4);
+    }
+
+    .income-box h3 {
+      color: #f4c400;
+      margin-bottom: 12px;
+    }
+
+    .income-box p {
+      font-size: 18px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <header class="tradenet-header">
+    <img src="{{ url_for('static', filename='assets/tradenet_logo.png') }}" alt="TradeNet Logo" class="logo">
+    <span class="logo-text">TradeNet</span>
+  </header>
+
+  <main class="income-section">
+    <h2>💰 Earnings Overview</h2>
+
+    <div class="income-grid">
+      <div class="income-box">
+        <h3>Total Revenue</h3>
+        <p>$19,840</p>
+      </div>
+      <div class="income-box">
+        <h3>Monthly Subscriptions</h3>
+        <p>$5,240</p>
+      </div>
+      <div class="income-box">
+        <h3>Affiliate Income</h3>
+        <p>$2,300</p>
+      </div>
+    </div>
+  </main>
+</body>
+</html>

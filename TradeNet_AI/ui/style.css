@@ -1,0 +1,33 @@
+body {
+  background-color: #0b0c10;
+  color: #66fcf1;
+  font-family: 'Segoe UI', sans-serif;
+  padding: 30px;
+}
+h1 {
+  font-size: 26px;
+  margin-bottom: 20px;
+}
+.buttons button {
+  background-color: #45a29e;
+  color: white;
+  padding: 10px 16px;
+  margin: 10px 10px 20px 0;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+}
+.buttons button:hover {
+  background-color: #1f2833;
+}
+.output-container {
+  background: #1f2833;
+  padding: 20px;
+  border-radius: 5px;
+}
+.output-container pre {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  font-size: 14px;
+  color: #ffffff;
+}

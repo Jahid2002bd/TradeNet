@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Empire Dashboard</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <h1>📊 TradeNet AI Empire Panel</h1>
+
+  <div class="buttons">
+    <button onclick="generateSignals()">⚡ Signal Generate</button>
+    <button onclick="checkStatus()">📡 Bot Status</button>
+  </div>
+
+  <div class="output-container">
+    <h2>Signal Output:</h2>
+    <div id="signal-output"></div>
+
+    <h2>Booster Status:</h2>
+    <div id="booster-output"></div>
+  </div>
+</body>
+<script src="dashboard.js"></script>
+</html>

@@ -1,0 +1,73 @@
+  {
+    "timestamp": "2025-07-17T18:18:33.948009+00:00",
+    "symbol": "BTCUSDT",
+    "side": "BUY",
+    "entry": 62300,
+    "tp": 64500,
+    "sl": 60900,
+    "mode": "auto"
+  },
+  {
+    "timestamp": "2025-07-17T18:18:45.318905+00:00",
+    "symbol": "BTCUSDT",
+    "side": "BUY",
+    "entry": 62300,
+    "tp": 64500,
+    "sl": 60900,
+    "mode": "auto"
+  },
+  {
+    "timestamp": "2025-07-17T18:18:49.037469+00:00",
+    "symbol": "BTCUSDT",
+    "side": "BUY",
+    "entry": 62300,
+    "tp": 64500,
+    "sl": 60900,
+    "mode": "auto"
+  },
+  {
+    "timestamp": "2025-07-17T18:18:49.761600+00:00",
+    "symbol": "BTCUSDT",
+    "side": "BUY",
+    "entry": 62300,
+    "tp": 64500,
+    "sl": 60900,
+    "mode": "auto"
+  },
+  {
+    "timestamp": "2025-07-17T18:18:49.954744+00:00",
+    "symbol": "BTCUSDT",
+    "side": "BUY",
+    "entry": 62300,
+    "tp": 64500,
+    "sl": 60900,
+    "mode": "auto"
+  },
+  {
+    "timestamp": "2025-07-17T18:18:51.048552+00:00",
+    "symbol": "BTCUSDT",
+    "side": "BUY",
+    "entry": 62300,
+    "tp": 64500,
+    "sl": 60900,
+    "mode": "auto"
+  },
+  {
+    "timestamp": "2025-07-17T18:18:51.970525+00:00",
+    "symbol": "BTCUSDT",
+    "side": "BUY",
+    "entry": 62300,
+    "tp": 64500,
+    "sl": 60900,
+    "mode": "auto"
+  },
+  {
+    "timestamp": "2025-07-17T18:18:53.770394+00:00",
+    "symbol": "BTCUSDT",
+    "side": "BUY",
+    "entry": 62300,
+    "tp": 64500,
+    "sl": 60900,
+    "mode": "auto"
+  }
+]

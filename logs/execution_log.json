@@ -1,0 +1,11 @@
+{
+  "2025-07-19T00:00:00": {
+    "BTCUSDT": {
+      "signal": "BUY",
+      "confidence": 92,
+      "reason": "RSI oversold, MACD bullish, volume spike | OutcomeBoost 7% | PatternBoost 5% | InstBoost 10%",
+      "mode": "DRY-RUN",
+      "status": "executed"
+    }
+  }
+}

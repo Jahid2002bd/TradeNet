@@ -1,0 +1,74 @@
+[
+  {
+    "timestamp": "2025-07-17T18:18:33.946975+00:00",
+    "symbol": "BTCUSDT",
+    "signal": "BUY",
+    "confidence": 93,
+    "reason": "RSI oversold + MACD bullish crossover",
+    "action": "WAIT FOR CONFIRMATION"
+  },
+  {
+    "timestamp": "2025-07-17T18:18:45.307756+00:00",
+    "symbol": "BTCUSDT",
+    "signal": "BUY",
+    "confidence": 93,
+    "reason": "RSI oversold + MACD bullish crossover",
+    "action": "WAIT FOR CONFIRMATION"
+  },
+  {
+    "timestamp": "2025-07-17T18:18:49.036326+00:00",
+    "symbol": "BTCUSDT",
+    "signal": "BUY",
+    "confidence": 93,
+    "reason": "RSI oversold + MACD bullish crossover",
+    "action": "WAIT FOR CONFIRMATION"
+  },
+  {
+    "timestamp": "2025-07-17T18:18:49.746153+00:00",
+    "symbol": "BTCUSDT",
+    "signal": "BUY",
+    "confidence": 93,
+    "reason": "RSI oversold + MACD bullish crossover",
+    "action": "WAIT FOR CONFIRMATION"
+  },
+  {
+    "timestamp": "2025-07-17T18:18:49.944322+00:00",
+    "symbol": "BTCUSDT",
+    "signal": "BUY",
+    "confidence": 93,
+    "reason": "RSI oversold + MACD bullish crossover",
+    "action": "WAIT FOR CONFIRMATION"
+  },
+  {
+    "timestamp": "2025-07-17T18:18:51.037107+00:00",
+    "symbol": "BTCUSDT",
+    "signal": "BUY",
+    "confidence": 93,
+    "reason": "RSI oversold + MACD bullish crossover",
+    "action": "WAIT FOR CONFIRMATION"
+  },
+  {
+    "timestamp": "2025-07-17T18:18:51.969316+00:00",
+    "symbol": "BTCUSDT",
+    "signal": "BUY",
+    "confidence": 93,
+    "reason": "RSI oversold + MACD bullish crossover",
+    "action": "WAIT FOR CONFIRMATION"
+  },
+  {
+    "timestamp": "2025-07-17T18:18:53.769084+00:00",
+    "symbol": "BTCUSDT",
+    "signal": "BUY",
+    "confidence": 93,
+    "reason": "RSI oversold + MACD bullish crossover",
+    "action": "WAIT FOR CONFIRMATION"
+  },
+  {
+    "timestamp": "2025-07-17T18:28:18.383079+00:00",
+    "symbol": "BTCUSDT",
+    "signal": "BUY",
+    "confidence": 93,
+    "reason": "RSI oversold + MACD bullish crossover + Positive sentiment",
+    "action": "WAIT FOR CONFIRMATION"
+  }
+]

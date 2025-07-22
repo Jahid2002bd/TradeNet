@@ -1,0 +1,10 @@
+{
+  "TRADE_MODE": "auto",
+  "BIG_TRADE_CONFIDENCE": 90,
+  "COMMANDER_NAME": "Jahid",
+  "NOTIFY": "telegram",
+  "EXECUTION_MODE": "paper",
+  "SANDBOX_MODE": true,
+  "BOT_TOKEN": "your_actual_token_here",
+  "COMMANDER_ID": "your_chat_id_here"
+}
