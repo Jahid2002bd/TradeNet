@@ -1,0 +1,37 @@
+<!-- tradenet_home.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>TradeNet - Market Signals</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='tradenet_style.css') }}">
+</head>
+<body>
+  <header class="tradenet-header">
+    <img src="{{ url_for('static', filename='assets/tradenet_logo.png') }}" alt="TradeNet Logo" class="logo">
+    <span class="logo-text">TradeNet</span>
+  </header>
+
+  <main>
+    <section class="signal-section">
+      <h2>📊 All Market Signals</h2>
+      <table id="signal-table">
+        <thead>
+          <tr>
+            <th>Symbol</th>
+            <th>Signal</th>
+            <th>Confidence</th>
+            <th>Booster</th>
+            <th>Time</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Rows will be added by JS -->
+        </tbody>
+      </table>
+    </section>
+  </main>
+
+  <script src="{{ url_for('static', filename='app_home.js') }}"></script>
+</body>
+</html>
