@@ -1,32 +1,48 @@
-from typing import Dict
+from typing import Dict, List
 from src.telegram_controller import get_config
 from src.trade_approval import get_approved
 from src.execution_logger import log_execution
 from src.auto_trader import notify_commander
 
-# ✅ ট্রিগার ফাংশন বসানো হয়েছে নিচে
 def trigger_trade(signal: Dict) -> None:
     symbol = signal.get("symbol", "—")
-    side = signal.get("signal", "—")
+    side = signal.get("signal", "—").upper()
     entry = signal.get("entry_price", "—")
     tp = signal.get("tp", "—")
     sl = signal.get("sl", "—")
 
     print(f"\n🚀 Executing {side} trade for {symbol}")
     print(f"🎯 Entry: ${entry} | 📈 TP: ${tp} | 🛑 SL: ${sl}")
-    print("✅ Trade Executed (Simulated)")  # 🔁 Future: API call here
+    print("✅ Trade Executed (Simulated)")
 
 def execute_signals(signal_summary: Dict[str, Dict]) -> None:
     config = get_config()
     mode = str(config.get("TRADE_MODE", "auto")).lower()
-    threshold_raw = config.get("BIG_TRADE_CONFIDENCE", 85)
-    threshold = int(threshold_raw) if isinstance(threshold_raw, (int, float, str)) else 85
-    commander = config.get("COMMANDER_NAME", "Commander")
+    commander = str(config.get("COMMANDER_NAME", "Commander"))
+    plan = str(config.get("USER_PLAN", "lite")).lower()
+
+    # 🎯 Plan-based threshold
+    plan_thresholds = {
+        "free": None,
+        "lite": 70,
+        "pro": 85,
+        "enterprise": 90
+    }
+    raw_threshold = config.get("BIG_TRADE_CONFIDENCE", 85)
+    try:
+        config_threshold = int(float(raw_threshold))
+    except (ValueError, TypeError):
+        config_threshold = 85
+
+    threshold = plan_thresholds.get(plan, config_threshold)
+    if threshold is None:
+        print(f"\n⛔ Plan '{plan}' blocked trade execution. Upgrade required.")
+        return
 
     if mode == "manual":
-        approved_list = get_approved()
-        approved_symbols = {str(item.get("symbol", "")).upper() for item in approved_list}
-        print(f"\n🔒 Manual Mode ➤ Executing {len(approved_symbols)} approved trades:\n")
+        approved: List[Dict] = get_approved()
+        approved_symbols = {str(item.get("symbol", "")).upper() for item in approved}
+        print(f"\n🔒 Manual Mode ➤ Executing {len(approved_symbols)} approved trades (Plan: {plan}, Threshold: {threshold}%):\n")
 
         for symbol in approved_symbols:
             signal = signal_summary.get(symbol)
@@ -34,26 +50,24 @@ def execute_signals(signal_summary: Dict[str, Dict]) -> None:
                 print(f"⚠️ Skipped: {symbol} → Not found in current signal batch.")
                 continue
 
-            signal_type = str(signal.get("signal", "—")).upper()
-            reason = str(signal.get("reason", "—"))
             confidence = int(signal.get("confidence", 0))
+            if confidence < threshold:
+                print(f"⏩ Skipped {symbol} → {confidence}% below plan threshold {threshold}%")
+                continue
 
-            print(f"✅ [MANUAL] Executing {symbol} → {signal_type} ({confidence}%) | Reason: {reason}")
-            trigger_trade(signal)  # ✅ Trigger function called here
+            print(f"✅ [MANUAL] {symbol} → {signal.get('signal', '—')} ({confidence}%) | Reason: {signal.get('reason', '—')}")
+            trigger_trade(signal)
             notify_commander(signal, is_auto=False, commander=commander)
-            log_execution(symbol, signal, mode=mode)
+            log_execution(symbol, signal, mode="manual")
         return
 
-    print(f"\n⚡ Auto Mode ➤ Executing signals above {threshold}% confidence:\n")
+    print(f"\n⚡ AUTO Mode ➤ Executing signals above {threshold}% (Plan: {plan})\n")
     for symbol, signal in signal_summary.items():
         confidence = int(signal.get("confidence", 0))
         if confidence >= threshold:
-            signal_type = str(signal.get("signal", "—")).upper()
-            reason = str(signal.get("reason", "—"))
-
-            print(f"✅ [AUTO] Executing {symbol} → {signal_type} ({confidence}%) | Reason: {reason}")
-            trigger_trade(signal)  # ✅ Trigger function called here
+            print(f"✅ [AUTO] {symbol} → {signal.get('signal', '—')} ({confidence}%) | Reason: {signal.get('reason', '—')}")
+            trigger_trade(signal)
             notify_commander(signal, is_auto=True, commander=commander)
-            log_execution(symbol, signal, mode=mode)
+            log_execution(symbol, signal, mode="auto")
         else:
             print(f"⏩ Skipped: {symbol} → Confidence {confidence}% below threshold.")
